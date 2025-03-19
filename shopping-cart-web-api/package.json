@@ -1,0 +1,19 @@
+{
+  "name": "shopping-cart-web-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "directus start",
+    "dbbackup": "directus schema snapshot --yes ./db/snapshot.yaml",
+    "dbapply": "directus schema apply --yes ./db/snapshot.yaml",
+    "bootstrap": "directus bootstrap"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "directus": "^11.3.5",
+    "sqlite3": "^5.1.7"
+  }
+}
