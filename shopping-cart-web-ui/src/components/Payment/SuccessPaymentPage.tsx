@@ -2,15 +2,19 @@
 
 import { HandCoins } from "lucide-react";
 import { redirect, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Button } from "../ui/button";
 
 const SuccessPaymentPage = () => {
-  const { push } = useRouter();
+const router = useRouter();
 
-  setTimeout(() => {
-    redirect("/");
-  }, 10000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.replace("/");
+    }, 10000);
 
+    return () => clearTimeout(timer);
+  }, [router]);
   return (
     <>
       <div className="flex h-[80dvh] flex-col items-center justify-center gap-4">
@@ -25,7 +29,7 @@ const SuccessPaymentPage = () => {
           You will be redirect to the home page shortly or click here to return
           home page
         </div>
-        <Button onClick={() => push("/")}>Home</Button>
+        <Button onClick={() => router.replace("/")}>Home</Button>
       </div>
     </>
   );
